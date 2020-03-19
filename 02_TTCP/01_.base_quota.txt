@@ -1,0 +1,4 @@
+1. Bandwidth, MB/s
+2. Throughput, messages/s, queries/s(QPS), transactions/s(TPS)
+3. Latency, milliseconds
+4. Utilization(资源使用率),percent

@@ -1,0 +1,30 @@
+[前提条件]
+准备三台不同配置的机器,根据CPU类型来标识
+	[M1, M2, M3]
+
+[方案]
+1. between M1 and {M2, M3}
+2. M1, dd | nc, nc -l > /dev/null
+3. M1, nc < file, nc -l > /dev/null
+
+[1. ]
+在某一台机器M1开启服务 nc -l 5001 > /dev/null
+
+[2. ]
+在另一台机器M2使用,使用磁盘数据 
+dd if=/dev/zero bs=1MB count=1000 | nc M1 5001
+
+[3. ]
+测试本机网速,使用磁盘数据 
+dd if=/dev/zero bs=1MB count=10000 | nc localhost 5001
+
+[4. ]
+测试本机网速, 使用文件系统(会缓存)
+Server: nc -l 5001 > /dev/null
+Client: time nc localhost 5001 < 1G_file
+
+[5. ]
+nc -l 5001 | pv -W > /dev/null 可以使用pv -W查看网速
+
+[6. ]
+可以使用更加低速的机器进行测试
