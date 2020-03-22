@@ -2,3 +2,16 @@
 2. Throughput, messages/s, queries/s(QPS), transactions/s(TPS)
 3. Latency, milliseconds
 4. Utilization(资源使用率),percent
+
+## 测试方案
+C\S  M1     V1       v2
+M1
+V1
+V2
+
+服务端: 直接使用C的普通API编写的
+测试结果为一个二维表格
+同时,需要考虑:发送的字节数,字节数个数
+
+服务端: while true; do ./ttcp -r; done
+客户端: ./ttcp -t host -l size
