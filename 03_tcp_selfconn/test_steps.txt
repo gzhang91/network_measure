@@ -1,0 +1,2 @@
+文件: self-connect.py
+查看本机端口号范围: sysctl -A | grep range net.ipv4.ip_local_port_range

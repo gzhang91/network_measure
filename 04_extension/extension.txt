@@ -1,0 +1,2 @@
+1. 通过ttcp统计Message/s的吞吐量
+2. 通过pipelining技术,每次并行发送两个,三个包
